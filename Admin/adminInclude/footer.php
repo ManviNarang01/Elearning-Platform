@@ -1,0 +1,38 @@
+<script type="text/javascript">
+const searchInput  = document.getElementById('searchInput');
+searchInput.addEventListener('input', updateValues);
+
+function updateValues(){
+    const searchInput = document.getElementById('searchInput').value;
+    // alert(searchInput);
+    if (searchInput.length > 0) {
+      $.ajax({
+        url: 'search.php',
+        type: 'post',
+        data: { searchTerm: searchInput },
+        success: function(response) {
+          $('#searchResults').html(response);
+        }
+      });
+    } else {
+      $('#searchResults').empty();
+    }
+}
+</script>
+    <!-- Jquery and Boostrap JavaScript -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/popper.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Font Awesome JS -->
+    <script type="text/javascript" src="../js/all.min.js"></script>
+
+    <!-- Admin Ajax Call JavaScript -->
+    <script type="text/javascript" src="..js/adminajaxrequest.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="text/javascript" src="../js/custom.js"></script>
+</body>
+
+</html>
